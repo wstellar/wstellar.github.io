@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WStellar — Stellar Blockchain Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #4d9eff;
+            --primary-dark: #3a7fd9;
+            --accent: #8a6dff;
+            --success: #4ade80;
+            --warning: #fbbf24;
+            --danger: #f87171;
+            --bg-deep: #06081a;
+            --bg-mid: #0c1029;
+            --card-bg: #121833;
+            --text-primary: #f0f4ff;
+            --text-secondary: #a0b0d9;
+            --border: rgba(65, 85, 140, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: radial-gradient(ellipse at top, #0d142e 0%, #06081a 60%, #03040c 100%);
+            position: relative;
+        }
+
+        /* Animated starry background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite ease-in-out;
+            opacity: var(--opacity);
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.15; }
+            50% { opacity: 0.9; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header & Logo */
+        .header {
+            text-align: center;
+            padding: 2.5rem 1.5rem 1.5rem;
+        }
+
+        .logo-container {
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(77, 158, 255, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 35px rgba(138, 109, 255, 0.4);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 2.8rem;
+            margin: 1rem 0 0.5rem;
+            background: linear-gradient(90deg, #4d9eff, #8a6dff, #c77dff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-weight: 500;
+        }
+
+        /* Section Title Style */
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin: 3rem 0 1.5rem;
+            background: linear-gradient(90deg, #4d9eff, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .benefit-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 30px rgba(77, 158, 255, 0.25);
+        }
+
+        .icon-circle {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1.2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(77, 158, 255, 0.12);
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+        }
+
+        .benefit-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 3rem 0 2rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.8rem;
+            border: 1px solid var(--border);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-family: 'Space Grotesk', serif;
+            font-size: 4rem;
+            color: rgba(77, 158, 255, 0.15);
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            color: #e0e7ff;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Roadmap */
+        .roadmap-section {
+            padding: 3rem 0 3rem;
+        }
+
+        .roadmap {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .roadmap::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+
+        .roadmap-item {
+            display: flex;
+            margin-bottom: 2.5rem;
+            width: 100%;
+        }
+
+        .roadmap-item:nth-child(odd) {
+            justify-content: flex-start;
+            padding-right: calc(50% + 30px);
+        }
+
+        .roadmap-item:nth-child(even) {
+            justify-content: flex-end;
+            padding-left: calc(50% + 30px);
+        }
+
+        .roadmap-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.3rem;
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .roadmap-date {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .roadmap-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .roadmap-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .roadmap-dot {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: var(--primary);
+            border: 4px solid var(--bg-deep);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 2;
+        }
+
+        .roadmap-item:nth-child(odd) .roadmap-dot {
+            right: -27px;
+        }
+
+        .roadmap-item:nth-child(even) .roadmap-dot {
+            left: -27px;
+        }
+
+        /* Price Card */
+        .price-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .price-title {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            text-align: center;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+        }
+
+        .price-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 0.5rem 0;
+            background: linear-gradient(to right, #4d9eff, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .price-change {
+            text-align: center;
+            margin-top: 0.75rem;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .positive {
+            background: rgba(74, 222, 128, 0.15);
+            color: #4ade80;
+        }
+
+        .negative {
+            background: rgba(248, 113, 113, 0.15);
+            color: #f87171;
+        }
+
+        /* Action Button */
+        .action-section {
+            text-align: center;
+            margin: 3rem 0 4rem;
+        }
+
+        .stellarterm-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 0.9rem 2.2rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 60px;
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(77, 158, 255, 0.35);
+            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+
+        .stellarterm-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(138, 109, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .roadmap::before {
+                left: 30px;
+            }
+            .roadmap-item {
+                flex-direction: column;
+                align-items: flex-start !important;
+                padding: 0 0 0 60px !important;
+            }
+            .roadmap-item:nth-child(odd),
+            .roadmap-item:nth-child(even) {
+                padding: 0 0 0 60px !important;
+            }
+            .roadmap-dot {
+                left: 16px !important;
+            }
+            .roadmap-content {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .price-value { font-size: 2.3rem; }
+            .stellarterm-btn { font-size: 1.1rem; padding: 0.8rem 1.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            .header { padding: 1.5rem 1rem 1rem; }
+            h1 { font-size: 1.8rem; }
+            .price-card { padding: 1.5rem; }
+            .price-value { font-size: 1.9rem; }
+            .tagline, .section-subtitle { font-size: 1rem; }
+            .benefits-grid, .testimonials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Star Background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <img
+                src="https://wstellar.github.io/images/spectacular_and_intricately_detailed_illustrati.png"
+                alt="WStellar Logo"
+                class="logo"
+            />
+        </div>
+        <h1>WStellar</h1>
+        <p class="tagline">Your gateway to high-yield, low-fee trading on the Stellar blockchain.</p>
+    </header>
+
+    <!-- Why Trade With WStellar? -->
+    <section class="container">
+        <h2 class="section-title">Why Trade With WStellar?</h2>
+        <p class="section-subtitle">
+            Join thousands of traders leveraging Stellar’s speed, security, and cost-efficiency to maximize returns.
+        </p>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="icon-circle">⚡</div>
+                <h3 class="benefit-title">Lightning-Fast Trades</h3>
+                <p class="benefit-desc">Settlements in 3–5 seconds. No waiting. No delays. Capitalize on every market movement instantly.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-circle">🔒</div>
+                <h3 class="benefit-title">Non-Custodial Security</h3>
+                <p class="benefit-desc">Your assets stay in your wallet. WStellar never holds your keys—just connects you to the best markets.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-circle">💸</div>
+                <h3 class="benefit-title">Near-Zero Fees</h3>
+                <p class="benefit-desc">Transactions cost less than $0.0001. Keep more of your hard-earned profits with every trade.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="icon-circle">📈</div>
+                <h3 class="benefit-title">Alpha Asset Access</h3>
+                <p class="benefit-desc">Be first to trade emerging Stellar tokens with massive upside—before they list on centralized exchanges.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Trusted by Traders Worldwide</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">WStellar gave me access to high-growth Stellar tokens I couldn’t find anywhere else. My portfolio is up 210% in 6 months!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <h4>Maria J.</h4>
+                            <p>DeFi Trader, Singapore</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The speed and near-zero fees changed how I trade. I execute 50+ swaps daily without worrying about gas costs.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TK</div>
+                        <div class="author-info">
+                            <h4>Tariq K.</h4>
+                            <p>Crypto Analyst, Dubai</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Finally, a platform that’s both secure and easy to use. I’ve never felt safer trading alt-tokens on Stellar.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LS</div>
+                        <div class="author-info">
+                            <h4>Lena S.</h4>
+                            <p>Investor, Berlin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="roadmap-section">
+        <div class="container">
+            <h2 class="section-title">Our Vision & Roadmap</h2>
+            <div class="roadmap">
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">Q4 2025</div>
+                        <h3 class="roadmap-title">Platform Launch</h3>
+                        <p class="roadmap-desc">WStellar goes live with real-time Stellar asset aggregation and market data.</p>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">Q1 2026</div>
+                        <h3 class="roadmap-title">Stellar DEX Aggregator</h3>
+                        <p class="roadmap-desc">Best-price routing across Lobstr, StellarX, and other DEXs for optimal execution.</p>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">Q2 2027</div>
+                        <h3 class="roadmap-title">Portfolio Tracker</h3>
+                        <p class="roadmap-desc">Advanced analytics, yield tracking, and profit/loss dashboard for all your Stellar assets.</p>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-content">
+                        <div class="roadmap-date">Q3 2028</div>
+                        <h3 class="roadmap-title">Mobile App</h3>
+                        <p class="roadmap-desc">Trade on the go with our native iOS & Android apps—coming soon to app stores.</p>
+                    </div>
+                    <div class="roadmap-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live XLM Price -->
+    <main class="container">
+        <div class="price-card">
+            <div class="price-title">Live XLM / USD Price</div>
+            <div class="price-value" id="price-value">Loading…</div>
+            <div class="price-change" id="price-change">—</div>
+        </div>
+
+        <!-- StellarTerm Button -->
+        <section class="action-section">
+            <a
+                href="https://stellarterm.com/"
+                class="stellarterm-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Trade on StellarTerm Markets (coming soon...)
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 WStellar — Powering the Future of Stellar Finance</p>
+        <p>Real-time data via CoinGecko • Non-custodial • Open Source</p>
+    </footer>
+
+    <script>
+        // Generate animated stars
+        function createStars() {
+            const container = document.getElementById('stars');
+            const count = 200;
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                const size = Math.random() * 2.5 + 0.5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const duration = 2 + Math.random() * 6;
+                const opacity = 0.2 + Math.random() * 0.8;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.left = `${posX}%`;
+                star.style.top = `${posY}%`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.setProperty('--opacity', opacity);
+                container.appendChild(star);
+            }
+        }
+
+        // Fetch XLM price
+        async function fetchXLMPrice() {
+            const priceEl = document.getElementById('price-value');
+            const changeEl = document.getElementById('price-change');
+            try {
+                const res = await fetch('https://api.coingecko.com/api/v3/coins/stellar');
+                if (!res.ok) throw new Error('API error');
+                const data = await res.json();
+                const price = data.market_data.current_price.usd;
+                const change24h = data.market_data.price_change_percentage_24h;
+                priceEl.textContent = `$${price.toFixed(4)}`;
+                const changeText = change24h >= 0 ? `+${change24h.toFixed(2)}%` : `${change24h.toFixed(2)}%`;
+                changeEl.textContent = `${changeText} (24h)`;
+                changeEl.className = `price-change ${change24h >= 0 ? 'positive' : 'negative'}`;
+            } catch (err) {
+                priceEl.textContent = '—';
+                changeEl.textContent = 'Price unavailable';
+                changeEl.className = 'price-change';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            fetchXLMPrice();
+            setInterval(fetchXLMPrice, 30000);
+        });
+    </script>
+</body>
+</html>
