@@ -1,5 +1,5 @@
-NETWORK_PASSPHRASE="Public Global Stellar Network ; September 2015"
 VERSION="2.0.0"
+NETWORK_PASSPHRASE="Public Global Stellar Network ; September 2015"
 
 [DOCUMENTATION]
 ORG_NAME="WStellar"
@@ -15,7 +15,7 @@ issuer="GCBRHKK6HLMN2DKDQNFHFD3BBQEUUBR23T56TSYRNXCAVHTZRZ3TIEGG"
 image="https://wstellar.github.io/images/EGG.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="EOS"
@@ -23,7 +23,7 @@ issuer="GAJYREW2F3LWOHD4VSBZGVRK46RE2YOFGGINDLIUOHIUJCUA2B7DZEOS"
 image="https://wstellar.github.io/images/EOS.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="JPM"
@@ -31,7 +31,7 @@ issuer="GBZ6SQZ6AM6UWCQIV72JXRCKEKMJ6ZWZGB42XDNGDL3W7OLMDNZKHJPM"
 image="https://wstellar.github.io/images/JPM.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="LTC"
@@ -39,7 +39,7 @@ issuer="GBA3TW4KGC4JKCQ3F7U4WDVRKHKQLBKS45CKM6HHRZNXJ6DMIBLCILTC"
 image="https://wstellar.github.io/images/LTC.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="LUX"
@@ -47,7 +47,7 @@ issuer="GCKKE5XQTAIZF7BW2BOMOPUU45JUKADOY3FBV5HKZ2ZBLU3RFVWBBLUX"
 image="https://wstellar.github.io/images/LUX.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="NFT"
@@ -55,7 +55,7 @@ issuer="GAXL6ZFO6MJCAAZMPJ7HYXRFKGSISUKCZMYXQVATWLZRNUZCDVS4ENFT"
 image="https://wstellar.github.io/images/NFT.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="RDX"
@@ -63,7 +63,7 @@ issuer="GCOSQ6PGZPOUYJ2WMAN54SZZRSZRCOWPUAWJZQIQIT2EUXOLM5GWZRDX"
 image="https://wstellar.github.io/images/RDX.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="ROK"
@@ -71,7 +71,7 @@ issuer="GD5EZNO6HQ6UDWHODEH2OZKDIH5SVFLLARPOLASUDIWAEOILDA7IKROK"
 image="https://wstellar.github.io/images/ROK.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="RON"
@@ -79,7 +79,7 @@ issuer="GA6GICGBD2BPNAMN3AYCLVZH3ZT2VHPRJ65BUT7VRTR7ROSF3PBDIRON"
 image="https://wstellar.github.io/images/RON.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="SSD"
@@ -87,7 +87,7 @@ issuer="GCJGGJLFBDFV4CTLJVVBKRIVAO5U4E74MFMYR5BZPHJS6PV77WHFUSSD"
 image="https://wstellar.github.io/images/SSD.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="STX"
@@ -95,7 +95,7 @@ issuer="GDBZBASQHCTPZGGP7CZC4SKWSTO3DKO7G65AQNY2L2V2LCMFLAXUTSTX"
 image="https://wstellar.github.io/images/STX.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="WWW"
@@ -103,7 +103,7 @@ issuer="GCH24YC2EAGSANNFHMMST6QC5DHXEE3KJGE7SRWI7UBLZGPS64KRAWWW"
 image="https://wstellar.github.io/images/WWW.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="XDC"
@@ -111,7 +111,7 @@ issuer="GBUABXEZ3IVSSBCWL4QWIGODVQIHAD6PJLHBDCBLXQPDTCMCDQPZJXDC"
 image="https://wstellar.github.io/images/XDC.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="XEM"
@@ -119,7 +119,7 @@ issuer="GDBRBGZYTSA6IAAVQWUD7XO4EDVPT3AGQFNQVHXBSQMB2RZQPQ7NNXEM"
 image="https://wstellar.github.io/images/XEM.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="XLM"
@@ -127,7 +127,7 @@ issuer="GCMHQ4SZIH2TMB3DXQLUKKVFXJGO22346ZZDUEYXOL3DRFJ6I2JOFXLM"
 image="https://wstellar.github.io/images/XLM.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="XLN"
@@ -135,7 +135,7 @@ issuer="GCZMLGHUIYRONCFDMUXKFQZYJCD3DDUFURFPLDJ7EHRLEFR2QMRDLXLN"
 image="https://wstellar.github.io/images/XLN.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="XMP"
@@ -143,7 +143,7 @@ issuer="GCXAZMYQWJI3E65KHA6WLQMTWI5SKPRRYNXJM7A47OTNAXRABKP5LXMP"
 image="https://wstellar.github.io/images/XMP.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
 
 [[CURRENCIES]]
 code="ZEN"
@@ -151,4 +151,4 @@ issuer="GDKRYHYV6COZPMUKB3J7R5H6TXGYOAAF67YJOQZ3MJTMWICZ4SD2MZEN"
 image="https://wstellar.github.io/images/ZEN.png"
 conditions="financial and business"
 display_decimals=7
-fixed_number=100000000000
+fixed_number=922337203685
